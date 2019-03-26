@@ -56,7 +56,7 @@ $_SESSION["modulo"] = "MODULO1";
 
     <title>LabVirtual - ILEEL</title>
     <script type="text/javascript">
-     var vids = [
+      var vids = [
 '../../grupos/grupo1/1.mp4',
 '../../grupos/grupo1/2.mp4',
 '../../grupos/grupo1/3.mp4',
@@ -297,7 +297,6 @@ $_SESSION["modulo"] = "MODULO1";
 '../legendas/grupo1/117.vtt',
 '../legendas/grupo1/118.vtt',
 ];
-
 var i = "<?php echo $msg;?>";
 var atual = "<?php echo $modatual;?>";
 

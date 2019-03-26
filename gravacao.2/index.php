@@ -56,7 +56,7 @@ $_SESSION["modulo"] = "MODULO2";
 
     <title>LabVirtual - ILEEL</title>
     <script type="text/javascript">
-     var vids = [
+var vids = [
 '../../grupos/grupo2/1.mp4',
 '../../grupos/grupo2/2.mp4',
 '../../grupos/grupo2/3.mp4',
@@ -174,6 +174,7 @@ $_SESSION["modulo"] = "MODULO2";
 '../../grupos/grupo2/115.mp4',
 '../../grupos/grupo2/116.mp4',
 '../../grupos/grupo2/117.mp4',
+'../../grupos/grupo2/118.mp4',
 ];
 
 	var legends = [
