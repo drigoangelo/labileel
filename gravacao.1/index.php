@@ -375,15 +375,16 @@ request.send(null);
             </nav>
 <br>
 <div class="container marcador2">
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div>
-            <div id="teste">
-                <h4></h4>
-            </div>
-        </div>
-    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div>
+                          <div id="teste">
+                            <h4></h4>
+                          </div>
+                        </div>
+                        </div>
+(??)                        <br>
 
      <div class="row marcador">
        <div class="col-md-4">
@@ -424,7 +425,6 @@ request.send(null);
             <div class="col-md-2"> 
                 <video width="255" height="144" id="recorded" controls></video>
             </div>
-            <div class="col-md-1">
                 <div class="btn-group btn-group-justified">
                     <button id="play"class="btn btn-primary" type="submit">Checar Gravação</button>
                     <div class="col-md-1"></div>
@@ -437,9 +437,11 @@ request.send(null);
                 </div>
             </div>
        </div>
-	</div>
-    <div class="row">
-    </div>
+       </div>
+	<div class="row">
+(??)      	<div class="col-md-1 ">
+(??)       <video width="255" height="144" id="recorded" controls></video>
+       </div>
         <div class="col-md-4">
         </div>
         <div class="col-md-2">
