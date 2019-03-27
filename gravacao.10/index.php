@@ -401,11 +401,11 @@ request.send(null);
                         <br>
                         
      <div class="row marcador">
-       <div class="col-md-3">
+       <div class="col-md-4">
         
        </div>
        <div class="col-md-4">
-        <video id="myvideo" width="600" height="200"  id="leftVideo" controls>
+        <video id="myvideo" width="426" height="290"  id="leftVideo" controls>
                                     <!-- NB CORS: https://bugzilla.mozilla.org/show_bug.cgi?id=1177793 -->
                                     <source src= "../grupos/grupo10/1.mp4" type="video/webm" />
                                     <source src= "../grupos/grupo10/1.mp4" type="video/mp4" />
@@ -427,24 +427,23 @@ request.send(null);
      </div>
 
     
-     <div class="row">
-        <div class="col-md-3">
-            
+     <div class="row marcador">
+<div class="col-md-4">
+        
+       </div>        
+        <div class="col-md-4">
+            <video width="426" height="240" id="gum" autoplay muted ></video>
         </div>
-        <div class="col-md-4 marcador">
-            <video width="600" height="400" id="gum" autoplay muted ></video>
-        </div>
-      
-     </div>
-     <div class="row">
-       <div class="col-md-3">
+	<div class="col-md-1">
         
        </div>
-       
-       <div class="col-md-3 marcador">
-       <video id="recorded" controls></video>
+	<div class="row">
+      	<div class="col-md-1 ">
+       <video width="255" height="144" id="recorded" controls></video>
        </div>
-       
+	</div>
+     </div>
+            
    </div>
 
             <!--

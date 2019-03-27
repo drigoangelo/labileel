@@ -403,20 +403,20 @@ request.send(null);
                         <br>
                         
      <div class="row marcador">
-       <div class="col-md-3">
+       <div class="col-md-4">
         
        </div>
        <div class="col-md-4">
-        <video id="myvideo" width="600" height="200"  id="leftVideo" controls>
+        <video id="myvideo" width="426" height="290"  id="leftVideo" controls>
                                     <!-- NB CORS: https://bugzilla.mozilla.org/show_bug.cgi?id=1177793 -->
-                                    <source src= "../../grupos/grupo7/1.mp4" type="video/webm" />
-                                    <source src= "../../grupos/grupo7/1.mp4" type="video/mp4" />
-                                    <track id="legenda" label="English" kind="subtitles" srclang="en" src="../legendas/grupo7/1.vtt" default>
-                                    <script type="text/javascript">
+                                    <source src= "../grupos/grupo10/1.mp4" type="video/webm" />
+                                    <source src= "../grupos/grupo10/1.mp4" type="video/mp4" />
+                                    <track id="legenda" label="English" kind="subtitles" srclang="en" src="../legendas/grupo10/1.vtt" default>                                    
+				    <script type="text/javascript">
                                     var j = i;
                                     j++;
                                         document.getElementById("myvideo").src=vids[i];
-                                        document.getElementById("legenda").src=legends[i];
+					document.getElementById("legenda").src=legends[i];
                                         document.getElementById("teste").innerHTML="Vídeo N°" + (j);
                                         
                                         </script>
@@ -429,53 +429,24 @@ request.send(null);
      </div>
 
     
-     <div class="row">
-        <div class="col-md-3">
-            
+     <div class="row marcador">
+<div class="col-md-4">
+        
+       </div>        
+        <div class="col-md-4">
+            <video width="426" height="240" id="gum" autoplay muted ></video>
         </div>
-        <div class="col-md-4 marcador">
-            <video width="600" height="400" id="gum" autoplay muted ></video>
-        </div>
-      
-     </div>
-     <div class="row">
-       <div class="col-md-3">
+	<div class="col-md-1">
         
        </div>
-       
-       <div class="col-md-3 marcador">
-       <video id="recorded" controls></video>
+	<div class="row">
+      	<div class="col-md-1 ">
+       <video width="255" height="144" id="recorded" controls></video>
        </div>
-       
+	</div>
+     </div>
+            
    </div>
-
-            <!--
-            <div class="container">
-                    <div class="row"> 
-                                            <div class="card-body text-center" style="color:#2D1E2F">
-
-                            <video id="leftVideo" controls muted>
-                                 NB CORS: https://bugzilla.mozilla.org/show_bug.cgi?id=1177793 
-                                <source src="./chrome.webm" type="video/webm" />
-                                <source src="./chrome.mp4" type="video/mp4" />
-                                <p>This browser does not support the video element.</p>
-                            </video>
-
-
-
-                            <video id="gum" autoplay muted></video>
-                        <video id="recorded" loop controls></video>
-
-                        <div>
-                          <button id="record"class="btn btn-primary" type="submit">Start Recording</button>
-                          <button id="play"class="btn btn-primary" type="submit">Play</button>
-                          <button id="download"class="btn btn-primary" type="submit">Enviar</button>
-                        </div>
-
-
-
-                    </div>
-                </div>
                 </div> -->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
