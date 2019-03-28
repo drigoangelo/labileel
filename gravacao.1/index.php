@@ -375,35 +375,15 @@ request.send(null);
             </nav>
 <br>
 <div class="container marcador2">
-                    <div class="row">
-                        <div class="col-md-4">
-
-                        </div>
-                        <div>
-                        
-                          <button id="download" class="btn btn-outline-primary" type="submit" disabled>
-                            <script type="text/javascript">
-                                document.getElementById("download").style.visibility = "hidden"; 
-                            </script>
-                          </button>
-                          <button id="espaco" class="btn btn-primary" type="submit" disabled>
-                            <script type="text/javascript">
-                                document.getElementById("espaco").style.visibility = "hidden"; 
-                            </script>
-                          </button>
-                          <button id="record"class="btn btn-primary" type="submit">Começar a gravar</button>
-                          <button id="play"class="btn btn-primary" type="submit">Play</button>
-                          <button onclick="next()"class="btn btn-primary" type="submit">Enviar</button>
-                          <br />
-                          <br />
-                          <div id="teste">
-                            <h4></h4>
-                          </div>
-
-                        </div>
-
-                        </div>
-                        <br>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div>
+            <div id="teste">
+                <h4></h4>
+            </div>
+        </div>
+    </div>
 
      <div class="row marcador">
        <div class="col-md-4">
@@ -439,14 +419,34 @@ request.send(null);
         <div class="col-md-4">
             <video width="426" height="240" id="gum" autoplay muted ></video>
         </div>
-	<div class="col-md-1">
-        
-       </div>
 	<div class="row">
-      	<div class="col-md-1 ">
-       <video width="255" height="144" id="recorded" controls></video>
+      	<div class="col-md-4">
+            <div class="col-md-2"> 
+                <video width="255" height="144" id="recorded" controls></video>
+            </div>
+            <div class="col-md-1">
+                <div class="btn-group btn-group-justified">
+                    <button id="play"class="btn btn-primary" type="submit">Checar Gravação</button>
+                    <div class="col-md-1"></div>
+                    <button onclick="next()"class="btn btn-primary" type="submit">Enviar</button>
+                    <button id="download" class="btn btn-outline-primary" type="submit" disabled>
+                        <script type="text/javascript">
+                            document.getElementById("download").style.visibility = "hidden"; 
+                        </script>
+                    </button>
+                </div>
+            </div>
        </div>
 	</div>
+    <div class="row">
+    </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-4">
+            <button id="record"class="btn btn-primary" style="border-radius: 20px; width:40px; height:40px; background-color: red;" type="submit"></button>
+        </div>
      </div>
             
    </div>

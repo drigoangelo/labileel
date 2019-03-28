@@ -68,11 +68,11 @@ function handleStop(event) {
 }
 
 function toggleRecording() {
-    if (recordButton.textContent === 'Começar a gravar') { //Start Recording
+    if (recordButton.textContent === '') { //Start Recording
         startRecording();
     } else {
         stopRecording();
-        recordButton.textContent = 'Começar a gravar'; //Start Recording
+        recordButton.textContent = ''; //Start Recording
         playButton.disabled = false;
         downloadButton.disabled = false;
     }
@@ -102,7 +102,7 @@ function startRecording() {
         return;
     }
     console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
-    recordButton.textContent = 'Parar gravação'; //Stop recording
+    recordButton.textContent = ' '; //Stop recording
     playButton.disabled = true;
     downloadButton.disabled = true;
     mediaRecorder.onstop = handleStop;
