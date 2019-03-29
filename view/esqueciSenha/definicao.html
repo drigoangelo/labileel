@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+        
+            <title>Definição da senha</title>
+            <meta charset="utf-8">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="WebRTC code samples">
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+        <meta itemprop="description" content="Client-side WebRTC code samples">
+        <meta itemprop="name" content="WebRTC code samples">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta id="theme-color" name="theme-color" content="#ffffff">
+
+        <base target="_blank">
+
+        <!-- Bootstrap CSS -->
+        <link  rel="stylesheet" href="../css/bootstrap.css">
+        <link  rel="stylesheet" href="../css/styles.css">
+        <link  rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <!--<link rel="stylesheet" href="../css/css2.css">  As vezes vou ter que tirar esse -->
+        <link rel="stylesheet" href="../css/main.css"> <!-- Esse eu tenho certeza que vai, pois é em relação ao vídeo -->
+        <!-- <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+        Essa aqui tinha mas eu nao sabia se era necessária ou não -->
+
+    
+    </head>
+
+    <body>
+            <div class="container-fluid">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" class="card-panel teal lighten-2">
+            
+                            <a class="navbar-brand" href="login.html">LabVirtual - ILEEL&emsp;&emsp;&emsp;&emsp;  </a>
+            
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+            
+            
+                            <div class="collapse navbar-collapse" id="navbarSite">
+            
+                                <ul class="navbar-nav ml-auto">
+            
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link" href="contato.html">Contato</a>
+                                    </li> -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../sair/sair.php">Sair</a>
+                                    </li>
+            
+                                </ul>
+            
+                            </div>
+            
+                        </nav>
+            <br>
+            </div>
+
+            <form action="definicao.php" method="POST">
+                    <div class="form-row">
+                      <div class="form-group col-md-3">
+                        <label for="inputEmail4">Nova senha: </label>
+                        <input type="password" class="form-control" name="novaSenha1">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="inputPassword4">Digite a senha novamente: </label>
+                        <input type="password" class="form-control" name="novaSenha2">
+                      </div>
+                    </div>
+                    <button name="ok"class="btn btn-outline-primary" type="submit" id="btn_login">OK</button>
+                </form>
+            
+
+           <!-- <form action="definicao.php" method="POST">
+                    <label for="">Nova senha:</label>
+                    <input type="password" name="novaSenha1" >
+                    <label for="">Digite a senha novamente:</label>
+                    <input type="password" name="novaSenha2" >
+                    <button type="submit" name="ok">OK</button>
+        
+        
+                </form> -->
+    </body>
+</html>

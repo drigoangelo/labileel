@@ -1,0 +1,6 @@
+<?php
+
+$servername = "lab-ileel-mysql";
+$username = "app_lab";
+$password = "espectograma";
+$dbname = "dataset";

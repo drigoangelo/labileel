@@ -1,0 +1,5 @@
+{
+    "require": {
+        "yidas/codeigniter-psr4-autoload": "^1.0"
+    }
+}
