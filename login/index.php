@@ -1,9 +1,9 @@
 
       <?php
 
-          $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
-          
-      ?>
+$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+
+?>
 <html lang="pt-br">
   <head>
 
@@ -32,13 +32,13 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/floating-labels.css" rel="stylesheet">
-    
+
   </head>
 
   <body>
     <div class="container">
       <div class="header clearfix">
-          
+
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!--<a class="navbar-brand" href="#">LabVirtual</a> -->
@@ -56,14 +56,14 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Contact</a>
                 </li> -->
-              
+
             <h3 class="text-muted" >LabVirtual</h3>
             <h3 class="text-muted"></h3>
               </ul>
             </div>
           </nav>
-          
-        
+
+
       </div>
 
 
@@ -92,19 +92,19 @@
         </label>
       </div>
       <button name="btn"class="btn btn-lg btn-outline-primary btn-block" type="buttom" id="btn_login">Entrar</button>
-      <a class="link" href="../cadastro/">Ainda não sou cadastrado</a>
+      <a class="link" href="../cadastro/">Ainda não tenho cadastro</a>
       <br />
     Esqueceu a senha? <a href="../esqueciSenha/">Clique aqui</a>
-    
+
 	<label>Aviso! Recomendado utilizar como navegador Google Chrome, Mozilla Firefox ou Opera para acessar esse site!</label>
       </form>
     <?php
 
-      if($erro == 1){
-         echo 'Senha ou CPF incorretos, por favor tente novamente.';
-      }
+if ($erro == 1) {
+	echo 'Senha ou CPF incorretos, por favor tente novamente.';
+}
 
-    ?>
+?>
 
     <p class="mt-5 mb-3 text-muted text-center">&copy;2018</p>
 

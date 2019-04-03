@@ -6,9 +6,9 @@ services:
 
     mysql:
         image: mysql:5.7
-        container_name: lab-ileel-mysql
+        container_name: lab-ileel-smp-mysql
         working_dir: /application
-        command: --init-file /application/db/db_sql.sql
+        command: --init-file /application/db/db_sql.sql --character-set-server=utf8 --collation-server=utf8_general_ci
         volumes:
             - .:/application
             - ./mysql:/var/lib/mysql
@@ -22,7 +22,7 @@ services:
 
     webserver:
         image: nginx:alpine
-        container_name: lab-ileel-webserver
+        container_name: lab-ileel-smp-webserver
         working_dir: /application
         volumes:
             - .:/application
@@ -40,7 +40,7 @@ services:
 
     php-fpm:
         build: phpdocker/php-fpm
-        container_name: lab-ileel-php-fpm
+        container_name: lab-ileel-smp-php-fpm
         working_dir: /application
         volumes:
             - .:/application
