@@ -48,6 +48,7 @@ create table IF NOT EXISTS dataset.tb_envio(
     id_usuario      INT,
     id_video        INT,
     caminho_envio   VARCHAR(250),
+    `status` INT,
     
     CONSTRAINT fk_envio_video FOREIGN KEY(id_video)
         REFERENCES dataset.tb_modulo(id),
