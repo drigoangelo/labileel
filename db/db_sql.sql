@@ -1,59 +1,59 @@
-CREATE TABLE dataset.tb_modulos(
-    modulo   INTEGER,
-    quantidade INTEGER,
-    
-    CONSTRAINT pk_modulo PRIMARY KEY(modulo)
+DROP DATABASE   IF     EXISTS dataset;
+CREATE DATABASE IF NOT EXISTS dataset;
+USE dataset;
+
+CREATE TABLE IF NOT EXISTS dataset.tb_modulo  (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome   varchar(30),
+    descricao varchar(250)
 );
-
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (1,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (2,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (3,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (4,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (5,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (6,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (7,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (8,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (9,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (10,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (11,0);
-INSERT INTO dataset.tb_modulos (modulo, quantidade) VALUES (12,0);
-
-
   
-CREATE TABLE dataset.tb_usuario(
-    nome            VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS dataset.tb_usuario(
+    id              INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nome            VARCHAR(120) NOT NULL,
     sobrenome       VARCHAR(45) NOT NULL,
-    user_id         SERIAL,
+    -- user_id         SERIAL,
     cpf             VARCHAR(14) NOT NULL,
-    senha           VARCHAR(32) NOT NULL,
+    senha           VARCHAR(60) NOT NULL,
     email           VARCHAR(45) UNIQUE,
     dt_nascimento   DATE NOT NULL,
     sexo            VARCHAR(11) NOT NULL,
     nacionalidade   VARCHAR(15) NOT NULL,
     cidade          VARCHAR(45) NOT NULL,
-    estado          VARCHAR(20) NOT NULL,
-    mod1      BOOLEAN	NOT NULL,
-    mod2      BOOLEAN	NOT NULL,
-    mod3      BOOLEAN	NOT NULL,
-    mod4      BOOLEAN	NOT NULL,
-    mod5      BOOLEAN	NOT NULL,
-    mod6      BOOLEAN	NOT NULL,
-    mod7      BOOLEAN	NOT NULL,
-    mod8      BOOLEAN	NOT NULL,
-    mod9      BOOLEAN	NOT NULL,
-    mod10      BOOLEAN	NOT NULL,
-    mod11      BOOLEAN	NOT NULL,
-    mod12      BOOLEAN	NOT NULL,
-    modAtual	INTEGER	NOT NULL,
-    videoAtual	INTEGER NOT NULL,
+    estado          VARCHAR(20) NOT NULL   
+);
 
+CREATE TABLE IF NOT EXISTS dataset.tb_modulo_usuario  (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_modulo INT,
+    id_usuario INT,
+    `status` INT
+);
+
+create table IF NOT EXISTS dataset.tb_video(
+    id              INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    id_modulo       INT,
+    num_video       INT,
+    nome            VARCHAR(30),
+    descricao       VARCHAR(250),
+    caminho_video   VARCHAR(250),
+    caminho_legenda VARCHAR(250),
     
+    CONSTRAINT fk_video_modulo FOREIGN KEY(id_modulo)
+        REFERENCES dataset.tb_modulo(id)
+);
 
-    CONSTRAINT pk_cpf PRIMARY KEY(cpf)
+create table IF NOT EXISTS dataset.tb_envio(
+    id              INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    id_usuario      INT,
+    id_video        INT,
+    caminho_envio   VARCHAR(250),
+    
+    CONSTRAINT fk_envio_video FOREIGN KEY(id_video)
+        REFERENCES dataset.tb_modulo(id),
+    
+    CONSTRAINT fk_envio_usuario FOREIGN KEY(id_usuario)
+        REFERENCES dataset.tb_usuario(id)
 );
-create table dataset.tb_videos(
- cpf VARCHAR(14),
- caminho VARCHAR(40),
- CONSTRAINT fk_pk_cpf FOREIGN KEY(cpf)
- REFERENCES dataset.tb_usuario(cpf)
-);
+
+
