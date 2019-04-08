@@ -1,0 +1,51 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mysql:
+        image: mysql:5.7
+        container_name: lab-ileel-smp-mysql
+        working_dir: /application
+        command: --init-file /application/db/db_sql.sql --character-set-server=utf8 --collation-server=utf8_general_ci
+        volumes:
+            - .:/application
+            - ./mysql:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=Jpw<54YT
+            - MYSQL_DATABASE=dataset
+            - MYSQL_USER=app_lab
+            - MYSQL_PASSWORD=espectograma
+        ports:
+            - "8082:3306"
+
+    webserver:
+        image: nginx:alpine
+        container_name: lab-ileel-smp-webserver
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - "8080:80"
+        depends_on:
+            - mysql
+        links:
+            - mysql
+        environment:
+            - MYSQL_DATABASE=dataset
+            - MYSQL_USER=app_lab
+            - MYSQL_PASSWORD=espectograma
+
+    php-fpm:
+        build: phpdocker/php-fpm
+        container_name: lab-ileel-smp-php-fpm
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.3/fpm/conf.d/99-overrides.ini
+        depends_on:
+            - mysql
+        links:
+            - mysql
