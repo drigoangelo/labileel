@@ -88,10 +88,15 @@ $totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
                 <div class="row">
                     
                     <div class="col-md-4">
+                        <div style="font-size: small;">
+                            Atenção: Este site tem um total de <?php echo $total; ?> dados para coleta.
+                            Não é obrigatório coletar todos eles, mas quanto mais itens puder coletar, mais você nos ajuda!
+                            Você pode acompanhar quantos dados, deste total, já coletou, com o contador abaixo:
+                        </div>
                         <div class=borda>
-                            Total de vídeos: <?php echo $totalFeito; ?>
+                            Total de dados a coletar: <?php echo $totalFeito; ?>
                             <br />
-                            Vídeos completados: <?php echo $total; ?>
+                            Total de dados que você já coletou: <?php echo $total; ?>
                         </div>
                     </div>
 
