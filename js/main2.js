@@ -11,9 +11,11 @@ var recordedVideo = document.querySelector('video#recorded');
 
 var recordButton = document.querySelector('button#record');
 var playButton = document.querySelector('button#play');
+var downloadButton = document.querySelector('button#download');
 
 recordButton.onclick = toggleRecording;
 playButton.onclick = play;
+downloadButton.onclick = download;
 
 // window.isSecureContext could be used for Chrome
 var isSecureOrigin = location.protocol === 'https:' ||
@@ -40,7 +42,8 @@ function handleError(error) {
     console.log('navigator.getUserMedia error: ', error);
 }
 
-navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
+navigator.mediaDevices.getUserMedia(constraints).
+then(handleSuccess).catch(handleError);
 
 function handleSourceOpen(event) {
     console.log('MediaSource opened');
@@ -65,11 +68,11 @@ function handleStop(event) {
 }
 
 function toggleRecording() {
-    if (recordButton.textContent === '') { //Start Recording
+    if (recordButton.textContent === 'Gravar') { //Start Recording
         startRecording();
     } else {
         stopRecording();
-        recordButton.textContent = ''; //Start Recording
+        recordButton.textContent = 'Gravar'; //Start Recording
         playButton.disabled = false;
         downloadButton.disabled = false;
     }
@@ -77,41 +80,35 @@ function toggleRecording() {
 
 function startRecording() {
     recordedBlobs = [];
-    var options = {
-        mimeType: 'video/webm;codecs=vp9'
-    };
+    var options = {mimeType: 'video/webm;codecs=vp9'};
     if (!MediaRecorder.isTypeSupported(options.mimeType)) {
         console.log(options.mimeType + ' is not Supported');
-        options = {
-            mimeType: 'video/webm;codecs=vp8'
-        };
+        options = {mimeType: 'video/webm;codecs=vp8'};
         if (!MediaRecorder.isTypeSupported(options.mimeType)) {
             console.log(options.mimeType + ' is not Supported');
-            options = {
-                mimeType: 'video/webm'
-            };
+            options = {mimeType: 'video/webm'};
             if (!MediaRecorder.isTypeSupported(options.mimeType)) {
                 console.log(options.mimeType + ' is not Supported');
-                options = {
-                    mimeType: ''
-                };
+                options = {mimeType: ''};
             }
         }
     }
     try {
         mediaRecorder = new MediaRecorder(window.stream, options);
-    } catch ( e ) {
+    } catch (e) {
         console.error('Exception while creating MediaRecorder: ' + e);
         alert('Exception while creating MediaRecorder: '
             + e + '. mimeType: ' + options.mimeType);
         return;
     }
-    recordButton.textContent = ' '; //Stop recording
+    console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
+    recordButton.textContent = 'Parar'; //Stop recording
     playButton.disabled = true;
     downloadButton.disabled = true;
     mediaRecorder.onstop = handleStop;
     mediaRecorder.ondataavailable = handleDataAvailable;
     mediaRecorder.start(10); // collect 10ms of data
+    console.log('MediaRecorder started', mediaRecorder);
 }
 
 function stopRecording() {
@@ -120,27 +117,23 @@ function stopRecording() {
     recordedVideo.controls = true;
 }
 
+//O usuário inicializa na tela o vídeo que ele gravou
 function play() {
-    let blob = new Blob(recordedBlobs, {
-        'type': 'video/mp4;'
-    });
-    let videoURL = window.URL.createObjectURL(blob);
-    recordedVideo.src = videoURL;
+    let blob = new Blob(recordedBlobs, { 'type' : 'video/mp4;'});//Cria uma váriavel do tipo blob para armazenar o vídeo gravado
+    let videoURL = window.URL.createObjectURL(blob); //Cria uma url com o vídeo gravado
+    recordedVideo.src = videoURL; //Coloca na tela de reprodução a url do vídeo gravado pelo usuário
 }
 
-function upload() {
-    var blob = new Blob(recordedBlobs, {
-        type: 'video/webm'
-    });
-    var url = window.URL.createObjectURL(blob);
-    form = new FormData(),
-    request = new XMLHttpRequest();
-    form.append("blob", blob, "teste.webm");
+//Função que faz o download do vídeo para o servidor
+function download() {
+    var blob = new Blob(recordedBlobs, {type: 'video/webm'}); //Cria uma váriavel do tipo blob para armazenar o vídeo gravado
+    form = new FormData(), //Cria um form para armazenar o vídeo
+    request = new XMLHttpRequest(); //Cria uma requisição
+    form.append("blob",blob,"teste.webm"); //Armazena o vídeo no form
     request.open(
-        "POST",
-        "/upload.php",
-        true
-    );
-    request.send(form);
+                "POST",
+                "https://labvirtual.ileel.ufu.br/labileel/upload.php",
+                true
+                ); //Envia para o arquivo upload.php o vídeo
+    request.send(form); //Execulta o upload.php
 }
-

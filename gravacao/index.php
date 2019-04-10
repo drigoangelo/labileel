@@ -2,11 +2,11 @@
 // Conexão
 require_once '../db/db_connect.php';
 require_once '../modelo/Usuario.php';
-require_once '../modelo/video.php';
+require_once '../modelo/Video.php';
 require_once '../modelo/Modulo.php';
 
 // Sessão
-session_start();
+//session_start();
 $usuario = new Usuario;
 $usuario->conn = $conn;
 $usuario = $usuario->buscar($_SESSION['cpf']);
@@ -24,6 +24,8 @@ $video_atual = $video->video_atual($usuario);
 $_SESSION["video_id"] = $video_atual->id;
 $_SESSION["num_video"] = $video_atual->num_video;
 
+$total = $video->contarVideos();
+$totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -44,7 +46,7 @@ $_SESSION["num_video"] = $video_atual->num_video;
         <script>
             function funcaoSair()
             {
-            alert("Parabéns pela sua participação.\nAgradecemos muitíssimo pela sua contribuição.\nEquipe ELLA.");
+                alert("Parabéns pela sua participação.\nAgradecemos muitíssimo pela sua contribuição.\nEquipe ELLA.");
             }
         </script>
     </head>
@@ -86,10 +88,10 @@ $_SESSION["num_video"] = $video_atual->num_video;
                 <div class="row">
                     
                     <div class="col-md-4">
-                        <div>
-                            Total de vídeos: 1410
+                        <div class=borda>
+                            Total de vídeos: <?php echo $totalFeito; ?>
                             <br />
-                            Vídeos completados: X
+                            Vídeos completados: <?php echo $total; ?>
                         </div>
                     </div>
 
@@ -115,12 +117,17 @@ $_SESSION["num_video"] = $video_atual->num_video;
                             <button id="play" class="btn btn-primary" type="button">Checar Gravação</button>
                             <button id="btn_enviar" class="btn btn-primary ml-auto" type="button">Enviar</button>
                         </div>
+                        <button id="download" class="btn btn-outline-primary" type="submit" disabled>
+                            <script type="text/javascript">
+                                document.getElementById("download").style.visibility = "hidden"; 
+                            </script>
+                        </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-4">
-                        <button id="record" class="btn record-button" type="button"></button>
+                        <button id="record"class="record-button" type="submit">Gravar</button>
                     </div>
                 </div>
 
