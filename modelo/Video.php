@@ -111,10 +111,9 @@ class Video {
 		return $vid;
 	}
 
-	function salvar_envio($video, $usuario) {
+	function salvar_envio($usuario, $video) {
 		$sql = "INSERT INTO dataset.tb_envio(id_video, id_usuario, status)
-                VALUES('$video->id','$usuario->id', " . ENVIO_STATUS_INICIADO . ");";
-		echo $sql;
+                VALUES('$video->id','$usuario->id', " . Video::ENVIO_STATUS_INICIADO . ");";
 		$resultado = mysqli_query($this->conn, $sql);
 		return $resultado;
 	}

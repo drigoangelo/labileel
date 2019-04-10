@@ -9,23 +9,17 @@ session_start();
 
 if (isset($_POST['btn'])) {
 
-	$socket = fsockopen('udp://pool.ntp.br', 123, $err_no, $err_str, 1);
-	if ($socket) {
-		if (fwrite($socket, chr(bindec('00' . sprintf('%03d', decbin(3)) . '011')) . str_repeat(chr(0x0), 39) . pack('N', time()) . pack("N", 0))) {
-			stream_set_timeout($socket, 1);
-			$unpack0 = unpack("N12", fread($socket, 48));
-			$dt_cadastro = date('Y-m-d', $unpack0[7]);
-		}
-		fclose($socket);
-	}
+
+
 
 	$erros = array();
 	$usr = new Usuario;
 
 	$usr->nome = mysqli_escape_string($conn, $_POST['nome']);
-	$usr->sobrenome = mysqli_escape_string($conn, $_POST['sobrenome']);
-	$usr->cpf = mysqli_escape_string($conn, $_POST['cpf']);
-	$usr->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+	// $usr->sobrenome = mysqli_escape_string($conn, $_POST['sobrenome']);
+	//$usr->cpf = mysqli_escape_string($conn, $_POST['cpf']);
+		  if(($_POST['cpf']) != ""? $cpf = $_POST['cpf'] : $cpf = $_POST['ID']);
+$usr->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 	$usr->email = mysqli_escape_string($conn, $_POST['email1']);
 	//$email12 = mysqli_escape_string($conn,$_POST['email2']);
 	//$email = $email1;
@@ -46,6 +40,19 @@ if (isset($_POST['btn'])) {
 
 	$usr->conn = $conn;
 	$res = $usr->save();
+
+    //verificar se o cpf ja existe
+    $sql1 = " select * from dataset.tb_usuario where cpf = '$cpf' ";
+    $resultado = mysqli_query($conn, $sql1);
+    if(mysqli_num_rows($resultado) > 0){
+       echo ' CPF já cadastrado, por favor utilize outro CPF!';
+    }
+    else{
+        //verificar se o e-mail ja existe
+    $sql1 = " select * from dataset.tb_usuario where email = '$email' ";
+    $resultado = mysqli_query($conn, $sql1);
+    if(mysqli_num_rows($resultado) > 0){
+
 
 	if (gettype($res) == 'string') {
 		echo $res;
