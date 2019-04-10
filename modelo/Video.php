@@ -111,9 +111,35 @@ class Video {
 		return $vid;
 	}
 
-	function salvar_envio($usuario, $video) {
+	function contarVideos() {
+		$sql = "SELECT COUNT(*)
+                FROM dataset.tb_video;";
+
+		$res = mysqli_query($this->conn, $sql);
+
+		if ($row = $res->fetch_assoc()){
+			$total = $row['COUNT(*)'];
+		}
+		return $total;
+	}
+
+	function contarVideosFeitos($id) {
+		$sql = "SELECT COUNT(*)
+				FROM dataset.tb_envio
+				WHERE id = {$id};";
+
+		$res = mysqli_query($this->conn, $sql);
+
+		if ($row = $res->fetch_assoc()){
+			$total = $row['COUNT(*)'];
+		}
+		return $total;
+	}
+
+	function salvar_envio($video, $usuario) {
 		$sql = "INSERT INTO dataset.tb_envio(id_video, id_usuario, status)
-                VALUES('$video->id','$usuario->id', " . Video::ENVIO_STATUS_INICIADO . ");";
+                VALUES('$video->id','$usuario->id', " . ENVIO_STATUS_INICIADO . ");";
+		echo $sql;
 		$resultado = mysqli_query($this->conn, $sql);
 		return $resultado;
 	}
