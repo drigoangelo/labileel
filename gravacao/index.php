@@ -41,6 +41,12 @@ $_SESSION["num_video"] = $video_atual->num_video;
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
 
         <title>LabVirtual - ILEEL</title>
+        <script>
+            function funcaoSair()
+            {
+            alert("Parabéns pela sua participação.\nAgradecemos muitíssimo pela sua contribuição.\nEquipe ELLA.");
+            }
+        </script>
     </head>
 
     <body>
@@ -59,7 +65,7 @@ $_SESSION["num_video"] = $video_atual->num_video;
                             <a class="nav-link" href="../contato" target="_self">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../sair/sair.php" target="_self">Sair</a>
+                            <a class="nav-link" href="../sair/sair.php" target="_self" onclick="funcaoSair()">Sair</a>
                         </li>
 
                     </ul>
@@ -78,12 +84,23 @@ $_SESSION["num_video"] = $video_atual->num_video;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
+                    
+                    <div class="col-md-4">
+                        <div>
+                            Total de vídeos: 1410
+                            <br />
+                            Vídeos completados: X
+                        </div>
+                    </div>
 
                     <div class="col-md-4">
                         <video id="video_modelo" width="426" height="290" controls >
                             <track id="legenda" label="English" kind="subtitles" srclang="en" default>
                         </video>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <video id="video_tutorial" width="255" height="144" src='../tutorial/tutorial.mp4' controls ></video>
                     </div>
                 </div>
 
