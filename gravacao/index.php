@@ -101,13 +101,13 @@ $totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
                     </div>
 
                     <div class="col-md-4">
-                        <video id="video_modelo" width="426" height="290" controls >
-                            <track id="legenda" label="English" kind="subtitles" srclang="en" default>
+                        <video id="video_modelo" width="426" height="290" src="../../grupos/grupo1/1.mp4" controls >
+                            <track id="legenda" label="English" kind="subtitles" src="../legendas/grupo1/1.vtt" srclang="en" default>
                         </video>
-                    </div>
+                    </div>a
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <video id="video_tutorial" width="255" height="144" src='../tutorial/tutorial.mp4' controls ></video>
+                        <video id="video_tutorial" width="255" height="144" src='../../grupos/tutorial/tutorial.mp4' controls ></video>
                     </div>
                 </div>
 

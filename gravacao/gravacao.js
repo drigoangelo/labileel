@@ -12,7 +12,6 @@ $(function() {
                 $("#legenda")[0].src = data.caminho_legenda;
                 $("#video_modelo")[0].textTracks[0].mode = 'showing';
                 $("#lbl_video").innerHTML = "Vídeo N°" + (i + 1);
-
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.error("Error loading ajax", textStatus, errorThrown);
