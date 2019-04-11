@@ -94,9 +94,9 @@ $totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
                             Você pode acompanhar quantos dados, deste total, já coletou, com o contador abaixo:
                         </div>
                         <div class=borda>
-                            Total de dados a coletar: <?php echo $totalFeito; ?>
+                            Total: <?php echo $total; ?>
                             <br />
-                            Total de dados que você já coletou: <?php echo $total; ?>
+                            Enviados: <?php echo $totalFeito; ?>
                         </div>
                     </div>
 

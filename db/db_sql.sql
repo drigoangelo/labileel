@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS dataset.tb_modulo  (
 CREATE TABLE IF NOT EXISTS dataset.tb_usuario(
     id              INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nome            VARCHAR(120) NOT NULL,
-    sobrenome       VARCHAR(45) NOT NULL,
+    -- sobrenome       VARCHAR(45) NOT NULL,
     -- user_id         SERIAL,
     cpf             VARCHAR(14) NOT NULL,
     senha           VARCHAR(60) NOT NULL,
@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS dataset.tb_usuario(
     sexo            VARCHAR(11) NOT NULL,
     nacionalidade   VARCHAR(15) NOT NULL,
     cidade          VARCHAR(45) NOT NULL,
-    estado          VARCHAR(20) NOT NULL   
+    estado          VARCHAR(20) NOT NULL,   
+    estrangeiro     BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS dataset.tb_modulo_usuario  (
