@@ -35,9 +35,6 @@
 		if(($_POST['cpf']) == ""? $estrangeiro = 1 : $estrangeiro = 0);
 		$usr->estrangeiro = $estrangeiro;
 
-		$usr->conn = $conn;
-		$res = $usr->save();
-
 		$atual = date('Y/m/d'); //Recebe a data atual
     	$data1 = explode("/","$atual"); //Divide a data atual em dia, mês e ano
 		$dAtual = $data1[2];
@@ -72,10 +69,15 @@
     		$sql1 = " select * from dataset.tb_usuario where email = '$email' ";
     		$resultado = mysqli_query($conn, $sql1);
     		if(mysqli_num_rows($resultado) > 0){
+				echo 'Esse Email já está em uso, por favor utilize outro!';
+			}
+			else{
 				if($idade < 18){
 					echo 'Idade insuficiente!';
 				}
 				else{
+					$usr->conn = $conn;
+					$res = $usr->save();
 					if (gettype($res) == 'string') {
 						echo $res;
 					} else if ($res) {
