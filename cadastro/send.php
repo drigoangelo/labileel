@@ -18,8 +18,6 @@
 		$usr->cpf = $cpf; 
 		$usr->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 		$usr->email = mysqli_escape_string($conn, $_POST['email1']);
-		//$email12 = mysqli_escape_string($conn,$_POST['email2']);
-		//$email = $email1;
 		$usr->dt_nascimento = mysqli_escape_string($conn, $_POST['nascimento']);
 		if (mysqli_escape_string($conn, $_POST['sexo']) == 'Masculino') {
 			$usr->sexo = 'Masculino';

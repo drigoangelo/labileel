@@ -44,8 +44,7 @@ $totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
 
         <title>LabVirtual - ILEEL</title>
         <script>
-            function funcaoSair()
-            {
+            function funcaoSair(){
                 alert("Parabéns pela sua participação.\nAgradecemos muitíssimo pela sua contribuição.\nEquipe ELLA.");
             }
         </script>
@@ -104,7 +103,7 @@ $totalFeito = $video->contarVideosFeitos(intval($_SESSION['cpf']));
                         <video id="video_modelo" width="426" height="290" src="../../grupos/grupo1/1.mp4" controls >
                             <track id="legenda" label="English" kind="subtitles" src="../legendas/grupo1/1.vtt" srclang="en" default>
                         </video>
-                    </div>a
+                    </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
                         <video id="video_tutorial" width="255" height="144" src='../../grupos/tutorial/tutorial.mp4' controls ></video>

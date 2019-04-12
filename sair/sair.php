@@ -1,10 +1,7 @@
 <?php
+    session_start();
 
-session_start();
-
-unset($_SESSION['cpf']);
-unset($_SESSION['senha']);
-header('Location: ../login/');
-
-
+    unset($_SESSION['cpf']);
+    unset($_SESSION['senha']);
+    header('Location: ../login/');
 ?>

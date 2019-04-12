@@ -1,9 +1,9 @@
 <?php
 
 // Conexão com banco de dados
-$servername = "lab-ileel-smp-mysql";
-$username = "app_lab";
-$password = "espectograma";
+$servername = "localhost";
+$username = "sudo";
+$password = "#NeoLords2";
 $dbname = "dataset";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

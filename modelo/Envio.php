@@ -4,5 +4,4 @@ public class Envio {
     public int $id_vido;
     public int $id_usuario;
     public string $caminho;
-
 }
